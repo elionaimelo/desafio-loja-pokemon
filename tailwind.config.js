@@ -5,6 +5,11 @@ module.exports = {
     container: {
       center: true,
     },
+    extend: {
+      width: {
+        custom1: '450px',
+      },
+    },
   },
   variants: {
     extend: {},
