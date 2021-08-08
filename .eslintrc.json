@@ -4,7 +4,11 @@
     "es2021": true,
     "node": true
   },
-  "extends": ["plugin:react/recommended", "prettier", "airbnb"],
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "airbnb"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -12,7 +16,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["react", "react-hooks", "prettier"],
   "rules": {
     "prettier/prettier": "error",
     // allow jsx syntax in js files (for next.js project)
@@ -22,6 +26,7 @@
     //suppress types for props
     "react/prop-types": "off",
     //supreess spreading
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "jsx-a11y/anchor-is-valid": "off"
   }
 }

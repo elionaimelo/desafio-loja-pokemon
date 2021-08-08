@@ -1,9 +1,15 @@
+import Head from 'next/head';
 
+import Header from '../components/Header';
 
 export default function Home() {
   return (
     <>
-    <h1>Home</h1>
+      <Head>
+        <title>Pokemaricanas</title>
+      </Head>
+      <Header />
+      <h1>Home</h1>
     </>
-  )
+  );
 }
