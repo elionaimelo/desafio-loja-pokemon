@@ -9,7 +9,10 @@ export default function Home() {
         <title>Pokemaricanas</title>
       </Head>
       <Header />
-      <h1>Home</h1>
+      <main>
+        {/* filtros */}
+        {/* lista de produtos */}
+      </main>
     </>
   );
 }
