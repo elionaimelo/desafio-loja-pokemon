@@ -27,7 +27,7 @@ export const getStaticProps = async () => {
   const responses = await Promise.all(promises);
   const pokeData = responses.map((r) => ({
     name: r.data.name,
-    imgUrl: r.data.sprites.front_default,
+    imgUrl: r.data.sprites.other.dream_world.front_default,
   }));
 
   return {
