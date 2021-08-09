@@ -15,7 +15,7 @@ function ProductItem({ title, image }) {
       {/* <p className="my-4">Chamander é um pokemon tipo fogo</p> */}
       <button
         type="button"
-        className="bg-red-600 mt-4 p-3 text-white rounded-md"
+        className="bg-red-600 mt-4 p-3 text-white rounded-md hover:shadow-xl hover:bg-purple-700"
       >
         Comprar
       </button>
