@@ -24,20 +24,28 @@ function Header() {
           {/* Esquerda */}
           <div className="flex">
             <div className="mt-3">
-              <Image
-                src="/images/pokeball.svg"
-                width={44}
-                height={44}
-                className="logomt"
-              />
+              <Link href="/">
+                <a>
+                  <Image
+                    src="/images/pokeball.svg"
+                    width={44}
+                    height={44}
+                    className="logomt"
+                  />
+                </a>
+              </Link>
             </div>
             <div className="mt-3 hidden md:inline-flex">
-              <Image
-                src="/images/logo.png"
-                width={220}
-                height={44}
-                className="logomt"
-              />
+              <Link href="/">
+                <a>
+                  <Image
+                    src="/images/logo.png"
+                    width={220}
+                    height={44}
+                    className="logomt"
+                  />
+                </a>
+              </Link>
             </div>
           </div>
           {/* Centro */}
