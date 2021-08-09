@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 function ProductItem({ title, image }) {
   return (
-    <div className="flex flex-col bg-white p-6 rounded-md shadow-md mb-10">
+    <div className="flex flex-col bg-white p-6 rounded-md hover:shadow-xl cursor-pointer border border-transparent transition duration-500 hover:scale-125 hover:border-red-500 mb-10">
       {/* <img src={image} alt={title} /> */}
       <Image
         src={image}
@@ -11,7 +11,7 @@ function ProductItem({ title, image }) {
         height={185}
         className="mx-auto"
       />
-      <h4 className="text-3xl font-semibold mt-4 text-center">{title}</h4>
+      <h4 className="text-2xl font-semibold mt-4 text-center">{title}</h4>
       {/* <p className="my-4">Chamander é um pokemon tipo fogo</p> */}
       <button
         type="button"
