@@ -14,7 +14,7 @@ export default function Home({ pokemons }) {
       <Header />
       <main>
         {/* filtros */}
-        <section className="grid grid-cols-5 mx-9 mt-8 gap-4">
+        <section className="grid grid-cols-5 mx-9 mt-8 gap-10">
           <aside className="hidden md:block">
             <Sidebar />
           </aside>

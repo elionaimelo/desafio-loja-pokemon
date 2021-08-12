@@ -31,15 +31,6 @@ function Sidebar() {
               // eslint-disable-next-line indent
             ))
           : null}
-
-        {/* <div className="mt-3">
-          <input type="checkbox" className="form-checkbox" />
-          <span className="ml-2">Planta</span>
-        </div>
-        <div>
-          <input type="checkbox" className="form-checkbox" />
-          <span className="ml-2">Elétrico</span>
-        </div> */}
       </div>
     </form>
   );
