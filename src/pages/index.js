@@ -1,17 +1,21 @@
 import Head from 'next/head';
 import axios from 'axios';
 
+import { useState } from 'react';
 import Header from '../components/Header';
-import Products from '../components/Pokemons';
+import PokemonList from '../components/Pokemons';
 import Sidebar from '../components/Sidebar';
 
 export default function Home({ pokemons }) {
+  const [busca, setBusca] = useState();
+
   return (
     <div className="bg-gray-200 min-h-screen">
       <Head>
         <title>Pokemaricanas</title>
       </Head>
-      <Header />
+      <Header handleBusca={(busca) => setBusca(busca)} />
+
       <main>
         {/* filtros */}
         <section className="grid grid-cols-5 mx-9 mt-8 gap-10">
@@ -19,7 +23,7 @@ export default function Home({ pokemons }) {
             <Sidebar />
           </aside>
           <div className="col-span-4">
-            <Products pokemons={pokemons} />
+            <PokemonList pokemons={pokemons} busca={busca} />
           </div>
         </section>
       </main>

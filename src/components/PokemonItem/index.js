@@ -2,21 +2,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 function PokemonItem({ pokemon }) {
+  // console.log(pokemon);
   return (
-    <Link href={`pokemon/${pokemon.name}`}>
+    <Link href={`pokemon/${pokemon[0].name}`}>
       <div
         className="flex flex-col bg-white p-6 rounded-md hover:shadow-xl cursor-pointer border border-transparent
        transition duration-500 hover:scale-125 hover:border-red-500 mb-10"
       >
         <Image
-          src={pokemon.imgUrl}
-          alt={pokemon.name}
+          src={pokemon[0].imgUrl}
+          alt={pokemon[0].name}
           width={220}
           height={185}
           className="mx-auto"
         />
         <h4 className="text-2xl font-semibold mt-4 text-center">
-          {pokemon.name}
+          {pokemon[0].name}
         </h4>
 
         <button

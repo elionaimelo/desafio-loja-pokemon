@@ -8,8 +8,9 @@ import {
   AiOutlineLoading3Quarters,
 } from 'react-icons/ai';
 import { BiSearchAlt, BiUserCircle } from 'react-icons/bi';
+// import { useState } from 'react';
 
-function Header() {
+function Header(props) {
   // const router = useRouter();
   // const isActive = (r) => {
   //   if (r === router.pathname) {
@@ -17,6 +18,8 @@ function Header() {
   //   }
   // };
   const [session, loading] = useSession();
+  // const [busca, setBusca] = useState();
+  // console.log(busca);
   return (
     <header className="shadow-md border-b border-red-300 py-2 sticky top-0 z-50 bg-white">
       <div className="container">
@@ -55,6 +58,7 @@ function Header() {
               <input
                 id="searchGlobal"
                 placeholder="Pesquisar na loja"
+                onChange={(ev) => props.handleBusca(ev.target.value)}
                 className="hidden md:inline-flex ml-2 items-center bg-transparent outline-none placeholder-gray-400 flex-shrink"
               />
             </div>

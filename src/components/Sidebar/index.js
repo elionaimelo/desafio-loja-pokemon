@@ -3,6 +3,7 @@ import axios from 'axios';
 
 function Sidebar() {
   const [types, setTypes] = useState();
+  const [category, setCategory] = useState([]);
   useEffect(() => {
     async function getPokemons() {
       try {
@@ -16,6 +17,11 @@ function Sidebar() {
     getPokemons();
   }, []);
 
+  const onChangeType = (event) => {
+    console.log(event.target.value);
+    setCategory(event.target.value);
+  };
+
   return (
     <form>
       <div className="flex flex-col space-y-3 sticky top-0">
@@ -25,7 +31,12 @@ function Sidebar() {
         {types
           ? types.map((type) => (
               <div className="mt-3" key={type.name}>
-                <input type="checkbox" className="form-checkbox" />
+                <input
+                  type="checkbox"
+                  className="form-checkbox"
+                  value={type.name}
+                  onChange={onChangeType}
+                />
                 <span className="ml-2">{type.name}</span>
               </div>
               // eslint-disable-next-line indent
