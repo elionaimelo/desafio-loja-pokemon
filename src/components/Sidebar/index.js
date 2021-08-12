@@ -7,7 +7,6 @@ function Sidebar() {
     async function getPokemons() {
       try {
         const response = await axios.get('https://pokeapi.co/api/v2/type/');
-        console.log(response.data.results);
         setTypes(response.data.results);
       } catch (error) {
         console.log('deu erro');
@@ -19,10 +18,10 @@ function Sidebar() {
 
   return (
     <form>
-      <div className="flex flex-col space-y-3">
+      <div className="flex flex-col space-y-3 sticky top-0">
         <h4 className="font-medium text-red-600">Tipo de pokemon</h4>
         <hr className="border-gray-400" />
-        {console.log(types)}
+
         {types
           ? types.map((type) => (
               <div className="mt-3" key={type.name}>

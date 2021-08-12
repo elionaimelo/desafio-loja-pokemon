@@ -2,7 +2,7 @@ import Head from 'next/head';
 import axios from 'axios';
 
 import Header from '../components/Header';
-import Products from '../components/Products';
+import Products from '../components/Pokemons';
 import Sidebar from '../components/Sidebar';
 
 export default function Home({ pokemons }) {
@@ -15,7 +15,7 @@ export default function Home({ pokemons }) {
       <main>
         {/* filtros */}
         <section className="grid grid-cols-5 mx-9 mt-8 gap-4">
-          <aside>
+          <aside className="hidden md:block">
             <Sidebar />
           </aside>
           <div className="col-span-4">
