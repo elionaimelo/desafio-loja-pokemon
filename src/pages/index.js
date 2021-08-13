@@ -32,7 +32,7 @@ export default function Home({ pokemons }) {
 }
 export const getStaticProps = async () => {
   const response = await axios.get(
-    'https://pokeapi.co/api/v2/pokemon?limit=50',
+    'https://pokeapi.co/api/v2/pokemon?limit=10',
   );
 
   const promises = response.data.results.map((result) => axios.get(result.url));
