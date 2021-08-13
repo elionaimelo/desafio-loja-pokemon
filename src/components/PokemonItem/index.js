@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 function PokemonItem({ pokemon }) {
-  // console.log(pokemon);
   return (
     <Link href={`pokemon/${pokemon.name}`}>
       <div
