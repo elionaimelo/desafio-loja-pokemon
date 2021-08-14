@@ -1,3 +1,4 @@
+import { useState, useCallback } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Router from 'next/router';
@@ -5,6 +6,7 @@ import { useCart } from 'react-use-cart';
 
 import { IoIosArrowBack } from 'react-icons/io';
 import Header from '../components/Header';
+import Modal from '../components/Modal';
 
 function Cart() {
   const {
@@ -17,6 +19,14 @@ function Cart() {
     removeItem,
     emptyCart,
   } = useCart();
+
+  const [showModal, setShowModal] = useState(false);
+  const handleShowModal = useCallback(() => {
+    setShowModal(!showModal);
+  }, [showModal]);
+  const handleCloseModal = useCallback(() => {
+    setShowModal(false);
+  }, []);
 
   if (isEmpty)
     return (
@@ -102,9 +112,10 @@ function Cart() {
                   Limpar carrinho
                 </button>
                 <button
-                  onClick={() => emptyCart()}
+                  onClick={handleShowModal}
                   className="bg-blue-600 px-4 py-2 text-white rounded-sm"
                 >
+                  {showModal && <Modal onCancel={handleCloseModal} />}
                   Comprar
                 </button>
               </div>

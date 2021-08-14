@@ -58,7 +58,7 @@ function Header(props) {
           </form>
           {/* direita */}
           <nav className="flex space-x-3">
-            <Link href="/cart">
+            <Link href="/carrinho">
               <a className="flex items-center relative mr-4">
                 <AiOutlineShoppingCart size="1.4rem" />
                 <span className="ml-2 absolute -mt-8 bg-red-600 text-white rounded-full border border-gray-100 shadow-sm px-2 py-0">
