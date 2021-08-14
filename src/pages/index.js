@@ -62,7 +62,7 @@ export const getStaticProps = async () => {
     name: r.data.name,
     imgUrl: r.data.sprites.other.dream_world.front_default,
     types: r.data.types,
-    price: 100,
+    price: Math.floor(Math.random() * (1000 - 100) + 1000) / 100,
   }));
 
   return {

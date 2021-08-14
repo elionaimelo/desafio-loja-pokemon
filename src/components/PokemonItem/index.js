@@ -22,7 +22,7 @@ function PokemonItem({ pokemon, item }) {
         />
       )}
 
-      <p className="mt-7">R$ {pokemon.price},00</p>
+      <p className="mt-7">R$ {pokemon.price}</p>
       <h4 className="text-2xl font-semibold mt-4 text-center">
         {pokemon.name}
       </h4>
