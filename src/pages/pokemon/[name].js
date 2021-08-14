@@ -3,6 +3,7 @@ import Head from 'next/head';
 import axios from 'axios';
 import Image from 'next/image';
 import Router from 'next/router';
+import { IoIosArrowBack } from 'react-icons/io';
 
 import Header from '../../components/Header';
 import Sidebar from '../../components/Sidebar';
@@ -21,7 +22,13 @@ function PokemonDetail({ pokemon }) {
           </aside>
           <div className="col-span-4">
             <div className="flex flex-col bg-white p-6 rounded-md items-start shadow-md">
-              <button onClick={() => Router.back()}>Voltar</button>
+              <button
+                className="flex items-center"
+                onClick={() => Router.back()}
+              >
+                <IoIosArrowBack />
+                Voltar
+              </button>
               <h1 className="text-4xl mt-3 text-red-500 font-semibold">
                 Informações do pokemon
               </h1>
@@ -31,6 +38,7 @@ function PokemonDetail({ pokemon }) {
                 height={250}
               />
               <h1 className="text-3xl mt-3">{pokemon.name}</h1>
+              <h1 className="text-3xl mt-3">{pokemon.type}</h1>
             </div>
           </div>
         </section>
@@ -46,7 +54,6 @@ export const getServerSideProps = async ({ params: { name } }) => {
     props: {
       pokemon: response.data,
     },
-    revalidate: 10,
   };
 };
 

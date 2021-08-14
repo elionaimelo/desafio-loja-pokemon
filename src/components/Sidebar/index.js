@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function Sidebar() {
+function Sidebar(props) {
   const [types, setTypes] = useState();
+
   useEffect(() => {
     async function getPokemons() {
       try {
@@ -25,7 +26,12 @@ function Sidebar() {
         {types
           ? types.map((type) => (
               <div className="mt-3" key={type.name}>
-                <input type="checkbox" className="form-checkbox" />
+                <input
+                  type="checkbox"
+                  className="form-checkbox"
+                  value={type.name}
+                  onChange={(event) => props.handleFilter(event.target.value)}
+                />
                 <span className="ml-2">{type.name}</span>
               </div>
               // eslint-disable-next-line indent
