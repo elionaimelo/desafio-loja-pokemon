@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function Sidebar() {
+function Sidebar(props) {
   const [types, setTypes] = useState();
-  const [category, setCategory] = useState([]);
+
   useEffect(() => {
     async function getPokemons() {
       try {
@@ -16,11 +16,6 @@ function Sidebar() {
 
     getPokemons();
   }, []);
-
-  const onChangeType = (event) => {
-    console.log(event.target.value);
-    setCategory(event.target.value);
-  };
 
   return (
     <form>
@@ -35,7 +30,7 @@ function Sidebar() {
                   type="checkbox"
                   className="form-checkbox"
                   value={type.name}
-                  onChange={onChangeType}
+                  onChange={(event) => props.handleFilter(event.target.value)}
                 />
                 <span className="ml-2">{type.name}</span>
               </div>

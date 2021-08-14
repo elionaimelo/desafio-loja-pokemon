@@ -8,16 +8,22 @@ function PokemonItem({ pokemon }) {
         className="flex flex-col bg-white p-6 rounded-md hover:shadow-xl cursor-pointer border border-transparent
        transition duration-500 hover:scale-125 hover:border-red-500 mb-10"
       >
-        <Image
-          src={pokemon.imgUrl}
-          alt={pokemon.name}
-          width={220}
-          height={185}
-          className="mx-auto"
-        />
+        {pokemon.imgUrl == null ? (
+          ''
+        ) : (
+          <Image
+            src={pokemon.imgUrl}
+            alt={pokemon.name}
+            width={220}
+            height={185}
+            className="mx-auto"
+          />
+        )}
         <h4 className="text-2xl font-semibold mt-4 text-center">
           {pokemon.name}
         </h4>
+
+        <p>{pokemon.types.map((type) => type.slot.name)}</p>
 
         <button
           type="button"
