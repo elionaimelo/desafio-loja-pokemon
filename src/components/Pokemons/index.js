@@ -21,8 +21,8 @@ export default function PokemonList({ pokemons, busca, pokeFilterType }) {
   };
 
   const renderGeneral = () => {
-    return pokemons.map((poke) => (
-      <PokemonItem key={poke.name} pokemon={poke} />
+    return pokemons.map((poke, index) => (
+      <PokemonItem pokemon={poke} item={poke} key={index} />
     ));
   };
 

@@ -1,25 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { signIn, signOut, useSession } from 'next-auth/client';
-// import { useRouter } from 'next/router';
+import { useCart } from 'react-use-cart';
 
 import {
   AiOutlineShoppingCart,
   AiOutlineLoading3Quarters,
 } from 'react-icons/ai';
 import { BiSearchAlt, BiUserCircle } from 'react-icons/bi';
-// import { useState } from 'react';
 
 function Header(props) {
-  // const router = useRouter();
-  // const isActive = (r) => {
-  //   if (r === router.pathname) {
-  //   } else {
-  //   }
-  // };
   const [session, loading] = useSession();
-  // const [busca, setBusca] = useState();
-  // console.log(busca);
+  const { totalItems, cartTotal } = useCart();
+
   return (
     <header className="shadow-md border-b border-red-300 py-2 sticky top-0 z-50 bg-white">
       <div className="container">
@@ -65,10 +58,12 @@ function Header(props) {
           </form>
           {/* direita */}
           <nav className="flex space-x-3">
-            <Link href="/home">
-              <a className="flex items-center">
-                <AiOutlineShoppingCart />
-                <span className="ml-2">Carrinho</span>
+            <Link href="/cart">
+              <a className="flex items-center relative mr-4">
+                <AiOutlineShoppingCart size="1.4rem" />
+                <span className="ml-2 absolute -mt-8 bg-red-600 text-white rounded-full border border-gray-100 shadow-sm px-2 py-0">
+                  {totalItems}
+                </span>
               </a>
             </Link>
 

@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import axios from 'axios';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Header from '../components/Header';
 import PokemonList from '../components/Pokemons';
 import Sidebar from '../components/Sidebar';
@@ -25,18 +25,6 @@ export default function Home({ pokemons }) {
     }));
 
     setPokeFilterType(pokeData);
-
-    // const currentIndex = filter.indexOf(fil);
-    // const newCheck = [...filter];
-
-    // if (currentIndex === -1) {
-    //   newCheck.push(fil);
-    // } else {
-    //   newCheck.splice(currentIndex, 1);
-    // }
-    // setFilter(newCheck);
-    // console.log(filter);
-    // fetchDataType();
   };
 
   return (
@@ -47,7 +35,7 @@ export default function Home({ pokemons }) {
       <Header handleBusca={(busca) => setBusca(busca)} />
 
       <main>
-        <section className="grid grid-cols-5 mx-9 mt-8 gap-10">
+        <section className="grid lg:grid-cols-5 mx-9 mt-8 gap-10">
           <aside className="hidden md:block">
             <Sidebar handleFilter={(filt) => handleFilter(filt)} />
           </aside>
@@ -64,17 +52,17 @@ export default function Home({ pokemons }) {
   );
 }
 export const getStaticProps = async () => {
-  const response = await axios.get(
-    'https://pokeapi.co/api/v2/pokemon?limit=10',
-  );
+  const response = await axios.get('https://pokeapi.co/api/v2/pokemon');
 
   const promises = response.data.results.map((result) => axios.get(result.url));
   const responses = await Promise.all(promises);
 
-  const pokeData = responses.map((r) => ({
+  const pokeData = responses.map((r, index) => ({
+    id: index + 1,
     name: r.data.name,
     imgUrl: r.data.sprites.other.dream_world.front_default,
     types: r.data.types,
+    price: 100,
   }));
 
   return {
