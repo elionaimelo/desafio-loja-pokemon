@@ -9,7 +9,7 @@ function PokemonItem({ pokemon, item }) {
       <div
         key={pokemon.id}
         className="flex flex-col bg-white p-6 rounded-md hover:shadow-xl cursor-pointer border border-transparent
-       transition duration-500 hover:scale-125 hover:border-red-500 mb-10 text-center"
+       transition duration-500 hover:scale-105 hover:border-red-500 mb-10 text-center"
       >
         {pokemon.imgUrl == null ? (
           ''
