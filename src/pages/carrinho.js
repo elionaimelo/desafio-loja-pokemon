@@ -55,7 +55,7 @@ function Cart() {
       <Head>
         <title>Pokestore</title>
       </Head>
-      <Header handleBusca={(busc) => setBusca(busc)} />
+      <Header handleBusca={() => setBusca(busca)} />
 
       <main className="container py-10">
         <button
