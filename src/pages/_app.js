@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import '@fontsource/poppins';
 import { Provider } from 'next-auth/client';
-import { CartProvider, useCart } from 'react-use-cart';
+import { CartProvider } from 'react-use-cart';
 
 function MyApp({ Component, pageProps }) {
   return (
