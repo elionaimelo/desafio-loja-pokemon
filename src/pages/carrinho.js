@@ -11,7 +11,6 @@ import Modal from '../components/Modal';
 function Cart() {
   const {
     isEmpty,
-    totalUniqueItems,
     items,
     totalItems,
     cartTotal,
@@ -19,6 +18,8 @@ function Cart() {
     removeItem,
     emptyCart,
   } = useCart();
+
+  const [busca, setBusca] = useState();
 
   const [showModal, setShowModal] = useState(false);
   const handleShowModal = useCallback(() => {
@@ -28,15 +29,19 @@ function Cart() {
     setShowModal(false);
   }, []);
 
-  if (isEmpty)
+  if (isEmpty) {
     return (
       <div className="bg-gray-200 min-h-screen">
         <Head>
           <title>Pokestore</title>
         </Head>
-        <Header handleBusca={(busca) => setBusca(busca)} />
+        <Header handleBusca={(busc) => setBusca(busc)} />
         <main className="container py-10">
-          <button className="flex items-center" onClick={() => Router.back()}>
+          <button
+            type="button"
+            className="flex items-center"
+            onClick={() => Router.back()}
+          >
             <IoIosArrowBack />
             Voltar
           </button>
@@ -44,15 +49,20 @@ function Cart() {
         </main>
       </div>
     );
+  }
   return (
     <div className="bg-gray-200 min-h-screen">
       <Head>
         <title>Pokestore</title>
       </Head>
-      <Header handleBusca={(busca) => setBusca(busca)} />
+      <Header handleBusca={(busc) => setBusca(busc)} />
 
       <main className="container py-10">
-        <button className="flex items-center" onClick={() => Router.back()}>
+        <button
+          type="button"
+          className="flex items-center"
+          onClick={() => Router.back()}
+        >
           <IoIosArrowBack />
           Voltar
         </button>
@@ -63,6 +73,7 @@ function Cart() {
         {items.map((item, index) => (
           <>
             <div
+              // eslint-disable-next-line react/no-array-index-key
               key={index}
               className="grid md:grid-cols-5 gap-10 items-center border border-gray-300 rounded-md p-5"
             >
@@ -83,18 +94,21 @@ function Cart() {
               </div>
               <div className="flex flex-col gap-y-3">
                 <button
+                  type="button"
                   className="bg-gray-400 px-4 py-2 text-white rounded-sm"
                   onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
                 >
                   -
                 </button>
                 <button
+                  type="button"
                   className="bg-blue-600 px-4 py-2 text-white rounded-sm"
                   onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
                 >
                   +
                 </button>
                 <button
+                  type="button"
                   className="bg-red-600 px-4 py-2 text-white rounded-sm"
                   onClick={() => removeItem(item.id)}
                 >
@@ -106,12 +120,14 @@ function Cart() {
               Preço total: R$ <strong>{cartTotal}</strong>{' '}
               <div className="flex justify-end my-5 gap-6">
                 <button
+                  type="button"
                   onClick={() => emptyCart()}
                   className="bg-red-600 px-4 py-2 text-white rounded-sm"
                 >
                   Limpar carrinho
                 </button>
                 <button
+                  type="button"
                   onClick={handleShowModal}
                   className="bg-blue-600 px-4 py-2 text-white rounded-sm"
                 >
