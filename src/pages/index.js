@@ -23,6 +23,7 @@ export default function Home({ pokemons }) {
       name: r.data.name,
       imgUrl: r.data.sprites.front_default,
       types: r.data.types,
+      price: Math.floor(Math.random() * (1000 - 100) + 1000) / 100,
     }));
 
     setPokeFilterType(pokeData);
