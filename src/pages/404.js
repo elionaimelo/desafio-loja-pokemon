@@ -8,5 +8,6 @@ export function getStaticProps() {
       permanent: true,
       destination: '/',
     },
+    fallback: false,
   };
 }
