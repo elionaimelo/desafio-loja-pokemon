@@ -1,4 +1,5 @@
-import '../styles/globals.css';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import 'tailwindcss/tailwind.css';
 import '@fontsource/poppins';
 import { Provider } from 'next-auth/client';
 import { CartProvider } from 'react-use-cart';
