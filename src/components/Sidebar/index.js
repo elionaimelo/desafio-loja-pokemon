@@ -10,7 +10,7 @@ function Sidebar(props) {
         const response = await axios.get('https://pokeapi.co/api/v2/type/');
         setTypes(response.data.results);
       } catch (error) {
-        console.log('deu erro');
+        <p>{error}</p>;
       }
     }
 
@@ -19,7 +19,7 @@ function Sidebar(props) {
 
   return (
     <form>
-      <div className="flex flex-col space-y-3 sticky top-0">
+      <div className="flex flex-col space-y-3">
         <h4 className="font-medium text-red-600">Tipo de pokemon</h4>
         <hr className="border-gray-400" />
 

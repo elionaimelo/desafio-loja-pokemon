@@ -11,7 +11,7 @@ import { BiSearchAlt, BiUserCircle } from 'react-icons/bi';
 
 function Header(props) {
   const [session, loading] = useSession();
-  const { totalItems, cartTotal } = useCart();
+  const { totalItems } = useCart();
 
   return (
     <header className="shadow-md border-b border-red-300 py-2 sticky top-0 z-50 bg-white">

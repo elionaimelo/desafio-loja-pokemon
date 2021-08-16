@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useState } from 'react';
 import PokemonItem from '../PokemonItem';
 
@@ -43,6 +44,7 @@ export default function PokemonList({ pokemons, busca, pokeFilterType }) {
       {renderPokeFiltertype() == null && renderBusca() == null ? (
         <>
           {pokemons.slice(0, visible).map((poke, index) => (
+            // eslint-disable-next-line react/no-array-index-key
             <PokemonItem pokemon={poke} item={poke} key={index} />
           ))}
           <button

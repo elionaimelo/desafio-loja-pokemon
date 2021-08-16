@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Head from 'next/head';
 import axios from 'axios';
 
@@ -36,7 +37,7 @@ export default function Home({ pokemons }) {
 
       <main>
         <section className="grid lg:grid-cols-5 mx-9 mt-8 gap-10">
-          <aside className="hidden md:block">
+          <aside className="hidden md:block sticky top-0">
             <Sidebar handleFilter={(filt) => handleFilter(filt)} />
           </aside>
           <div className="col-span-4">

@@ -4,11 +4,13 @@ import axios from 'axios';
 import Image from 'next/image';
 import Router from 'next/router';
 import { IoIosArrowBack } from 'react-icons/io';
+import { useCart } from 'react-use-cart';
 
 import Header from '../../components/Header';
 import Sidebar from '../../components/Sidebar';
 
 function PokemonDetail({ pokemon }) {
+  const { addItem } = useCart();
   return (
     <div className="bg-gray-200 min-h-screen">
       <Head>
@@ -39,6 +41,14 @@ function PokemonDetail({ pokemon }) {
               />
               <h1 className="text-3xl mt-3">{pokemon.name}</h1>
               <h1 className="text-3xl mt-3">{pokemon.type}</h1>
+
+              <button
+                type="button"
+                className="bg-red-600 mt-4 p-3 text-white rounded-md hover:shadow-xl hover:bg-purple-700"
+                onClick={() => addItem(item)}
+              >
+                Adicionar ao carrinho
+              </button>
             </div>
           </div>
         </section>
