@@ -17,6 +17,15 @@ function Sidebar(props) {
     getPokemons();
   }, []);
 
+  const handleCheckd = (event) => {
+    if (event.target.checked === true) {
+      return props.handleFilter(event.target.value);
+    }
+    return null;
+
+    // props.handleFilter(event.target.value)
+  };
+
   return (
     <form>
       <div className="flex flex-col space-y-3">
@@ -30,7 +39,7 @@ function Sidebar(props) {
                   type="checkbox"
                   className="form-checkbox"
                   value={type.name}
-                  onChange={(event) => props.handleFilter(event.target.value)}
+                  onChange={(event) => handleCheckd(event)}
                 />
                 <span className="ml-2">{type.name}</span>
               </div>

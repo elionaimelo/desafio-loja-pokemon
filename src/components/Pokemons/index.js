@@ -19,11 +19,6 @@ export default function PokemonList({ pokemons, busca, pokeFilterType }) {
     ));
   };
 
-  // const renderGeneral = () =>
-  //   pokemons.map((poke, index) => (
-  //     <PokemonItem pokemon={poke} item={poke} key={index} />
-  //   ));
-
   const renderBusca = () => {
     if (busca == null || busca === undefined) {
       return null;
@@ -57,16 +52,16 @@ export default function PokemonList({ pokemons, busca, pokeFilterType }) {
         </>
       ) : (
         <>
-          {renderPokeFiltertype() == null
-            ? pokemons.map((poke, index) => (
-                <PokemonItem pokemon={poke} item={poke} key={index} />
-              ))
-            : renderPokeFiltertype()}
-          {renderBusca() == null
-            ? pokemons.map((poke, index) => (
-                <PokemonItem pokemon={poke} item={poke} key={index} />
-              ))
-            : renderBusca()}
+          {renderBusca() != null && renderPokeFiltertype() == null
+            ? renderBusca()
+            : null}
+          {renderPokeFiltertype() != null && renderBusca() == null
+            ? renderPokeFiltertype()
+            : null}
+
+          {(renderPokeFiltertype() != null) & (renderBusca() != null)
+            ? renderBusca()
+            : null}
         </>
       )}
     </div>
