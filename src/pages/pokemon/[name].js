@@ -9,7 +9,7 @@ import { useCart } from 'react-use-cart';
 import Header from '../../components/Header';
 import Sidebar from '../../components/Sidebar';
 
-function PokemonDetail({ pokemon }) {
+function PokemonDetail({ pokemon, item }) {
   const { addItem } = useCart();
   return (
     <div className="bg-gray-200 min-h-screen">
